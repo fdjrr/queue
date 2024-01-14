@@ -7,7 +7,7 @@ $ sudo apt-get install supervisor
 # Configuring Supervisor
 
 ```bash
-$ sudo nano /etc/supervisor/conf.d/queue-worker.conf
+$ sudo nano /etc/supervisor/conf.d/laravel-worker.conf
 ```
 
 ```bash
