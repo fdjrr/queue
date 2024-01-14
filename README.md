@@ -7,6 +7,10 @@ $ sudo apt-get install supervisor
 # Configuring Supervisor
 
 ```bash
+$ sudo nano /etc/supervisor/conf.d/queue-worker.conf
+```
+
+```bash
 [program:laravel-worker]
 process_name=%(program_name)s_%(process_num)02d
 command=php /home/forge/app.com/artisan queue:work --sleep=3 --tries=3 --max-time=3600
