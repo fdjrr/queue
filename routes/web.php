@@ -1,5 +1,9 @@
 <?php
 
+use App\Models\User;
+use App\Jobs\CreateUser;
+use Illuminate\Bus\Batch;
+use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +18,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $users = User::count();
+
+    return $users;
+});
+
+Route::get('/create-user', function () {
+    CreateUser::dispatch(100000);
 });
