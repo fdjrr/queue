@@ -18,6 +18,13 @@ class CreateUser implements ShouldQueue
     protected $total;
 
     /**
+     * The number of seconds the job can run before timing out.
+     *
+     * @var int
+     */
+    public $timeout = 120;
+
+    /**
      * Create a new job instance.
      */
     public function __construct($total)

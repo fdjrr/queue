@@ -1,10 +1,30 @@
-# Installing Supervisor
+# Simple Laravel Queue Job
+
+## Installation
+
+```bash
+$ git clone https://github.com/fdjrr/queue.git
+$ cd queue
+$ composer update
+$ cp .env .env.example
+$ php artisan key:generate
+$ php artisan migrate
+```
+
+## Configuration
+
+```bash
+FILESYSTEM_DISK=public
+QUEUE_CONNECTION=database
+```
+
+## Installing Supervisor
 
 ```bash
 $ sudo apt-get install supervisor
 ```
 
-# Configuring Supervisor
+## Configuring Supervisor
 
 ```bash
 $ sudo nano /etc/supervisor/conf.d/laravel-worker.conf
@@ -25,12 +45,18 @@ stdout_logfile=/home/forge/app.com/worker.log
 stopwaitsecs=3600
 ```
 
-# Starting Supervisor
+## Starting Supervisor
 
 ```bash
-sudo supervisorctl reread
+$ sudo supervisorctl reread
 
-sudo supervisorctl update
+$ sudo supervisorctl update
 
-sudo supervisorctl start "laravel-worker:*"
+$ sudo supervisorctl start "laravel-worker:*"
+```
+
+## Restarting and Reloading
+
+```bash
+$ sudo supervisorctl restart "laravel-worker:*"
 ```
